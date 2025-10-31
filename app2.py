@@ -2,11 +2,12 @@ import pandas as pd
 import streamlit as st
 from transformers import pipeline
 import matplotlib.pyplot as plt
+import openpyxl
 
 # ---------- Load dataset from GitHub ----------
 @st.cache_data
 def load_data():
-    url = "https://github.com/sumitkumawat12/karnataka-crop-rainfall-chatbot2/blob/main/merge_data.xlsx"
+    url = "https://raw.githubusercontent.com/sumitkumawat12/karnataka-crop-rainfall-chatbot2/main/merge_data.xlsx"
     return pd.read_excel(url)
 
 df = load_data()
@@ -53,3 +54,4 @@ if question:
             st.success(response)
         except Exception as e:
             st.error(f"⚠️ Error: {e}")
+
